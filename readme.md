@@ -82,6 +82,27 @@ PS C:\Users\Francesco\Desktop\BudgetApp>
 
 ```
 
+refact Compare_legdger_test test and it passed green 
+```
+PS C:\Users\Francesco\Desktop\BudgetApp> dotnet test --filter Compare_legdger_test
+  Individuazione dei progetti da ripristinare...
+  Tutti i progetti sono aggiornati per il ripristino.
+C:\Users\Francesco\Desktop\BudgetApp\BudgetAppTest.cs(27,15): warning CS8618: L'elemento campo 'ledger' 
+non nullable deve contenere un valore non Null all'uscita dal costruttore. Provare a dichiarare campo co
+me nullable. [C:\Users\Francesco\Desktop\BudgetApp\BudgetApp.csproj]
+  BudgetApp -> C:\Users\Francesco\Desktop\BudgetApp\bin\Debug\net6.0\BudgetApp.dll
+Esecuzione dei test per C:\Users\Francesco\Desktop\BudgetApp\bin\Debug\net6.0\BudgetApp.dll (.NETCoreApp,Version=v6.0)
+Strumento da riga di comando per l'esecuzione di test Microsoft (R) Versione 17.2.0 (x64)
+Copyright (c) Microsoft Corporation. Tutti i diritti sono riservati.
+
+Avvio dell'esecuzione dei test in corso. Attendere...
+Un totale di 1 file di test corrisponde al criterio specificato.
+
+Superato!     - Non superati:     0. Superati:     1. Ignorati:     0. Totale:     1. Durata: < 1 ms - BudgetApp.dll (net6.0)
+PS C:\Users\Francesco\Desktop\BudgetApp> 
+
+```
+
 
 
 

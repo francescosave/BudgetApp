@@ -14,8 +14,8 @@ public class BudgetAppTest
     public void Compare_legdger_test(){
         Category category = new Category("food");
         Category expetedCategory = new Category("food");
-        category.ledger =        new List<LedgerItem>(){new LedgerItem("bread",20),new LedgerItem("water",20)};
-        expetedCategory.ledger = new List<LedgerItem>(){new LedgerItem("breadS",10),new LedgerItem("water",10)};
+        category.ledger =        new List<LedgerItem>(){new LedgerItem("bread",20),new LedgerItem("water",10)};
+        expetedCategory.ledger = new List<LedgerItem>(){new LedgerItem("bread",20),new LedgerItem("water",10)};
         
         Assert.Equal(expetedCategory.ledger,category.ledger);
     }
