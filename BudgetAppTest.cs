@@ -5,46 +5,56 @@ public class BudgetAppTest
     [Fact]
     public void Create_category_test(){
 
+        // Assign & Act
         Category category = new Category("clothing");
         Category expetedCategory = new Category("clothing");
+        
+        //Assert
         Assert.Equal(expetedCategory,category);
     }
     
-    [Fact]
+[Fact]
     public void Compare_legdger_test(){
-        Category category = new Category("food")
-            {
-                ledger = new List<LedgerItem>(){new LedgerItem("bread",30),new LedgerItem("water",10)}
-            };
-        Category expetedCategory = new Category("food")
-            {
-                ledger = new List<LedgerItem>(){new LedgerItem("bread",30),new LedgerItem("water",10)}
-            };
-       
+
+        //Assign
+        Category category = new Category("food");
+        Category expetedCategory = new Category("food");
+
+        //Act
+        category.ledger = new List<LedgerItem>(){};
+        category.AddDeposit(new LedgerItem("bread",10));
+        expetedCategory.ledger = new List<LedgerItem>(){};
+        expetedCategory.AddDeposit(new LedgerItem("bread",10));
+
+        //Assert
         Assert.Equal(expetedCategory.ledger,category.ledger);
+    
     }
 
     [Fact]
-    public void AddDepositTest(){
-        Category category = new Category("food")
-            {
-                ledger = new List<LedgerItem>(){new LedgerItem("bread",30),new LedgerItem("water",10)}
-            };
-        Category expetedCategory = new Category("food")
-            {
-                ledger = new List<LedgerItem>(){new LedgerItem("bread",30),new LedgerItem("water",10)}
-            };
+    public void AddDepositTestBool(){
 
-        Assert.Equal(expetedCategory.AddDeposit(new LedgerItem("caffe",1)) ,category.AddDeposit(new LedgerItem("caffes",10)));
+        //Assign
+        Category category = new Category("food");
+        Category expetedCategory = new Category("food");
+
+        //Act
+        category.ledger = new List<LedgerItem>(){new LedgerItem("bread",30),new LedgerItem("water",10)};
+        expetedCategory.ledger = new List<LedgerItem>(){new LedgerItem("bread",30),new LedgerItem("water",10)};
+
+        //Assert
+        Assert.Equal(expetedCategory.AddDeposit(new LedgerItem("caffe",10)) ,category.AddDeposit(new LedgerItem("caffe",10)));
+    
     }
-
 }
 
 public record Category (string categorName)
 {
+    
+    // Se la istanzio qui la lista anche vuota mi va in errore il test
     public List<LedgerItem> ledger;
 
-    public Boolean AddDeposit(LedgerItem ledgerItem)
+    public bool AddDeposit(LedgerItem ledgerItem)
     {
         ledger.Add(ledgerItem);
         return true;
