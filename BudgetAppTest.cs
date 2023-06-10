@@ -49,10 +49,11 @@ public class BudgetAppTest
     }
 }
 
-public record Category (string categorName)
+public record Category (string categoryName)
 {
     
     // Se la istanzio qui la lista anche vuota mi va in errore il test
+    //public List<LedgerItem> ledger = new List<LedgerItem>();
     public List<LedgerItem> ledger;
 
     public bool AddDeposit(LedgerItem ledgerItem)
