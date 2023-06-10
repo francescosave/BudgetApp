@@ -39,11 +39,12 @@ public class BudgetAppTest
         Category expetedCategory = new Category("food");
 
         //Act
-        category.ledger = new List<LedgerItem>(){new LedgerItem("bread",30),new LedgerItem("water",10)};
-        expetedCategory.ledger = new List<LedgerItem>(){new LedgerItem("bread",30),new LedgerItem("water",10)};
+        category.ledger = new List<LedgerItem>(){};
+        expetedCategory.ledger = new List<LedgerItem>(){};
+        bool isDepositSuccess = expetedCategory.AddDeposit(new LedgerItem("caffe",10));
 
         //Assert
-        Assert.Equal(expetedCategory.AddDeposit(new LedgerItem("caffe",10)) ,category.AddDeposit(new LedgerItem("caffe",10)));
+        Assert.Equal( true ,isDepositSuccess);
     
     }
 }
