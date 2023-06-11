@@ -22,9 +22,9 @@ public class BudgetAppTest
 
         //Act
         category.ledger = new List<LedgerItem>(){};
-        category.AddDeposit(new LedgerItem("bread",10));
+        category.AddDeposit(new LedgerItem("initial deposit",1000));
         expetedCategory.ledger = new List<LedgerItem>(){};
-        expetedCategory.AddDeposit(new LedgerItem("bread",10));
+        expetedCategory.AddDeposit(new LedgerItem("initial deposit",1000));
 
         //Assert
         Assert.Equal(expetedCategory.ledger,category.ledger);
@@ -41,12 +41,31 @@ public class BudgetAppTest
         //Act
         category.ledger = new List<LedgerItem>(){};
         expetedCategory.ledger = new List<LedgerItem>(){};
-        bool isDepositSuccess = expetedCategory.AddDeposit(new LedgerItem("caffe",10));
+        bool isDepositSuccess = expetedCategory.AddDeposit(new LedgerItem("initial deposit",1000));
 
         //Assert
         Assert.Equal( true ,isDepositSuccess);
     
     }
+
+[Fact]
+    public void AddWithedrawTestBool(){
+
+        //Assign
+        Category category = new Category("food");
+        Category expetedCategory = new Category("food");
+
+        //Act
+        category.ledger = new List<LedgerItem>(){};
+        expetedCategory.ledger = new List<LedgerItem>(){};
+        bool isDepositSuccess = expetedCategory.AddWithedraw(new LedgerItem("restaurant",-50));
+
+        //Assert
+        Assert.Equal( true ,isDepositSuccess);
+    
+    }
+
+
 }
 
 public record Category (string categoryName)
@@ -57,6 +76,12 @@ public record Category (string categoryName)
     public List<LedgerItem> ledger;
 
     public bool AddDeposit(LedgerItem ledgerItem)
+    {
+        ledger.Add(ledgerItem);
+        return true;
+    }
+
+    internal bool AddWithedraw(LedgerItem ledgerItem)
     {
         ledger.Add(ledgerItem);
         return true;
