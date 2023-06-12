@@ -44,7 +44,7 @@ public class BudgetAppTest
         bool isDepositSuccess = expetedCategory.AddDeposit(new LedgerItem("initial deposit",1000));
 
         //Assert
-        Assert.Equal( true ,isDepositSuccess);
+        Assert.True(isDepositSuccess);
     
     }
 
@@ -63,8 +63,8 @@ public class BudgetAppTest
         bool isWithedrawSuccess = expetedCategory.AddWithedraw(new LedgerItem("restaurant",-1001));
 
         //Assert
-        Assert.Equal(false ,isWithedrawSuccess);
-    
+        Assert.False(isWithedrawSuccess);
+        //Assert.True(isWithedrawSuccess);
     }
 
     [Fact]
@@ -104,7 +104,8 @@ public class BudgetAppTest
 
         //Assert
         // initial deposit 1000 - restaurant 100 = balance 900
-        Assert.Equal(true,check_funds);
+        Assert.True(check_funds);
+        //Assert.False(check_funds);
         //Assert.Equal(true,check_funds);
     
     }
