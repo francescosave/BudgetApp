@@ -13,7 +13,7 @@ public class BudgetAppTest
         Assert.Equal(expetedCategory,category);
     }
     
-[Fact]
+    [Fact]
     public void Compare_legdger_test(){
 
         //Assign
@@ -87,8 +87,8 @@ public class BudgetAppTest
     
     }
 
-[Theory]
-[InlineData(900)]
+    [Theory]
+    [InlineData(900)]
     public void check_fundsTest(int amount){
 
         //Assign
@@ -110,6 +110,27 @@ public class BudgetAppTest
     
     }
 
+    /*
+    [Fact]
+    */
+    public void printBudgetTest(){
+        
+        //Assign
+        Category category = new Category("food");
+        Category expetedCategory = new Category("food");
+
+        //Act
+        //the Withedraw is possible only where amount is pari o inferiore al saldo
+        category.ledger = new List<LedgerItem>(){};
+        category.AddDeposit(new LedgerItem("initial deposit",1000));
+        category.AddWithedraw(new LedgerItem("restaurant",-100));
+
+        //Assert
+        // initial deposit 1000 - restaurant 100 = balance 900
+        //Assert.True(check_funds);
+        //Assert.False(check_funds);
+        //Assert.Equal(true,check_funds);
+    }
 
 }
 
