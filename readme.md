@@ -103,6 +103,22 @@ PS C:\Users\Francesco\Desktop\BudgetApp>
 
 ```
 
+**Print Output example**
+```
+PS C:\Users\Francesco\Desktop\BudgetApp> dotnet run
+Initial deposit: 1000
+restaurant: -700
+food balance is : 300
+-------------------------------
+  *** food ***
+-------------------------------
+Initial deposit        |   1000
+restaurant             |   -700
+TOTAL: 300
+-------------------------------
+PS C:\Users\Francesco\Desktop\BudgetApp> 
+```
+
 
 
 
