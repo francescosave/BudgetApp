@@ -159,7 +159,7 @@ public record Category (string categoryName)
         //Console.WriteLine($"AddWithedraw: {ledgerItem.Description} =>> {ledgerItem.amount} (balance={getBalance()})");
         if(System.Math.Abs(ledgerItem.amount) <=  getBalance()){
             ledger.Add(ledgerItem);
-            Console.WriteLine($"AddWithedraw: {ledgerItem.Description} =>> {ledgerItem.amount}");
+            //Console.WriteLine($"AddWithedraw: {ledgerItem.Description} =>> {ledgerItem.amount}");
             result = true;
         } else {
             Console.WriteLine($"Don't possible Withedraw! ");

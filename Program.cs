@@ -2,16 +2,24 @@
 Category category = new Category("food");  
 
 category.ledger = new List<LedgerItem>(){};
-category.AddDeposit(new LedgerItem("initial deposit",1000));
-category.AddWithedraw(new LedgerItem("restaurant",-700));
+
+const string initial_description = "Initial deposit";
+const int initial_deposit = 1000;
+const string withedraw_description = "restaurant";
+const int withedraw_amount = -700;
+
+category.AddDeposit(new LedgerItem(initial_description,initial_deposit));
+category.AddWithedraw(new LedgerItem(withedraw_description,withedraw_amount));
 //category.AddWithedraw(new LedgerItem("restaurant",-155));
 //category.AddWithedraw(new LedgerItem("restaurant",-745));
 //category.AddDeposit(new LedgerItem("initial deposit",100));
 //category.AddWithedraw(new LedgerItem("restaurant",-101));
+Console.WriteLine($"{initial_description}: {initial_deposit}");
+Console.WriteLine($"{withedraw_description}: {withedraw_amount}");
 Console.WriteLine($"{category.categoryName} balance is : {category.getBalance()}");
 
 // See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+//Console.WriteLine("Hello, World!");
 
 PrintBudget(category);
 
